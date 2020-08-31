@@ -1,0 +1,27 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+    background-color: skyblue;
+}
+
+.wrapper {
+    display: grid;
+    /* grid-template-columns: 30rem 30rem 30rem; */
+}
+
+#div_k1 {
+    padding: 5em;
+}
+
+
+
+#div_k2 {
+    padding: 5em;
+}
+
+#rez {
+    padding: 5em;
+}
