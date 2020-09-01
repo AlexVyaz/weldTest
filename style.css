@@ -14,6 +14,11 @@ html {
 
 #div_k1 {
     padding: 2em;
+    margin: 5em;
+    background-color: rgb(250, 250, 250);
+    width: 15em;
+    border: 2px solid silver;
+    border-radius: 5px;
 }
 
 #div_k2 {
@@ -22,6 +27,7 @@ html {
 
 #div_but1 {
     padding: 2em;
+    width: 20em;
 }
 
 #rez {
