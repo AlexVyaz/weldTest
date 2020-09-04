@@ -19,10 +19,10 @@ function umn() {
     let mNM = volume * p; //масса наплавленного металла
 
     let rPr =  ((mNM * kPr) / 1000) * 1.1; //норма расхода проволоки
-    let rGz = (rPr * 1.2 * 0.24) * 1.1; //норма расхода газа
-    rPr = rPr.toFixed(4); //округление
+    let rGz = (((mNM * kPr) / 1000) * 1.2 * 0.24) * 1.1; //норма расхода газа
 
-    
+    rPr = rPr.toFixed(4); //обрезаем лишние символы после запятой + округление
+    rGz = rGz.toFixed(5);    
 
     document.getElementById('rPr').innerHTML = rPr; //вывод результата
     document.getElementById('rGz').innerHTML = rGz; //расход газа
