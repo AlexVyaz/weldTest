@@ -6,21 +6,45 @@
     <title>Расчёт сварочных материалов</title>
     <link rel="stylesheet" href="./style.css">
 </head>
-<body> 
+<body>
+    
+    <h2 class="header">Упрощённый расчёт сварочных материалов и основного времени сварки (время горения дуги)</h2>
+    
+    <div class="wrapper" id="noKeyboard">
+        <!-- Расчёт угловых, тавровых и нахлёсточных соединений -->
+        <div class="img_wrapperT_H"> <img src="./37699022.png" alt="Разделка" width="245px">
+            <div class="wrapperT_H">
+                <h2 id="headerTH">Расчёт Т/Н/У швов</h2>
+                <div class="wrapperInT_H">
+                    <div id="div_k1"><p>Катет 1: <input type="number" id="k1"> см</p></div>
+                    <div id="div_k2"><p>Катет 2: <input type="number" id="k2"> см</p></div>
+                    <div id="div_l"><p>Длина: <input type="number" id="l"> см</p></div>
+                    <div id="div_i"><p>Сила тока: <input type="number" id="i" placeholder="80"> А</p></div>
+                    <div id="div_but1"><button onclick="rTH()">Расчитать</button></div> <!-- выполнение функции расчёта Тавровых и Нахлёсточных -->
+                    <div id="div_wW"><p>Расход проволоки, кг: <p id="weightWire">0</p></p></div>
+                    <div id="div_vG"><p>Расход газа, м<sup>3</sup>: <p id="volumeGas">0</p></p></div>
+                    <div id="div_wT"><p>Основное время, мин: <p id="weldingTime">0</p></p></div>
+                </div>
+            </div>
+        </div>
 
-    <div class="wrapperT_H">
-        <h2 id="header">Расчёт Т/Н швов</h2>
-        <div class="wrapperInT_H">
-            <div id="div_k1"><p>Катет 1: <input type="text" id="k1"> см</p></div>
-            <div id="div_k2"><p>Катет 2: <input type="text" id="k2"> см</p></div>
-            <div id="div_l"><p>Длина: <input type="text" id="l"> см</p></div>
-            <div id="div_but1"><button onclick="umn()">Расчитать</button></div>
-            <div><p>Расход проволоки, кг: <p id="rPr"></p></p></div>
-            <div><p>Расход газа, м<sup>3</sup>: <p id="rGz"></p></p></div>
+        <!-- Расчёт стыковых соединений -->
+        <div class="img_wrapperС"> <img src="./Стык.png" alt="Стык" width="245px">
+            <div class="wrapperC">
+                <h2 id="headerTH">Расчёт С швов</h2>
+                <div class="wrapperInT_H">
+                    <div id="div_k1"><p>Катет 1: <input type="number" id="k1"> см</p></div>
+                    <div id="div_k2"><p>Катет 2: <input type="number" id="k2"> см</p></div>
+                    <div id="div_l"><p>Длина: <input type="number" id="l"> см</p></div>
+                    <div id="div_i"><p>Сила тока: <input type="number" id="i" placeholder="80"> А</p></div>
+                    <div id="div_but1"><button onclick="rTH()">Расчитать</button></div> <!-- выполнение функции расчёта Тавровых и Нахлёсточных -->
+                    <div id="div_wW"><p>Расход проволоки, кг: <p id="weightWire">0</p></p></div>
+                    <div id="div_vG"><p>Расход газа, м<sup>3</sup>: <p id="volumeGas">0</p></p></div>
+                    <div id="div_wT"><p>Основное время, мин: <p id="weldingTime">0</p></p></div>
+                </div>
+            </div>
         </div>
     </div>
-
-    
     <script src="./app.js"></script>
 </body>
 </html>
