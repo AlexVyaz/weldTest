@@ -1,4 +1,4 @@
-//запрет на изменение значение в инпутах стрелками с клвы
+//запрет на изменение значение в инпутах стрелками с клавы
 document.getElementById('noKeyboard').addEventListener('keydown', function(e) {
     if (e.which === 38 || e.which === 40) {
         e.preventDefault();
