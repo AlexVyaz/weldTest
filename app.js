@@ -9,20 +9,22 @@ const p = 7.85; //плотность металла гр/см.куб
 const kPr = 1.2; //коэф. расхода проволоки
 const kN = 15; //г/А*ч, коэф. наплавки
 
-let i_1 = document.getElementById('i_1').value; //A, сила тока первого шва
-i_1 = parseInt(i_1);
 
-let i_2 = document.getElementById('i_2').value; //A, сила тока второго шва
-i_2 = parseInt(i_2);
 
-let i = document.getElementById('i').value; //A, сила тока первого шва
-i = parseInt(i);
+
 
 //Расчёт Т/Н/У
-function rTH(i_1 = 80, i_2 = 80) {
+function rTH() {
+
+    let i_1 = document.getElementById('i_1').value; //A, сила тока первого шва
+    i_1 = parseInt(i_1);
+
+    let i_2 = document.getElementById('i_2').value; //A, сила тока второго шва
+    i_2 = parseInt(i_2);
 
     //переменные катетов и длины швов
     let = k1_1, k2_1, l_1, k1_2, k2_2, l_2;
+    
     //первый шов
     k1_1 = document.getElementById('k1_1').value; //первый катет
     k1_1 = parseFloat(k1_1);
@@ -35,14 +37,24 @@ function rTH(i_1 = 80, i_2 = 80) {
     
     //второй шов
     k1_2 = document.getElementById('k1_2').value; //первый катет
-    k1_2 = parseFloat(k1_2);
-
+        if(k1_2 > 0) {
+            k1_2 = parseFloat(k1_2);
+        } else {
+            k1_2 = 0;
+        }
     k2_2 = document.getElementById('k2_2').value; //второй катет
-    k2_2 = parseFloat(k2_2);
-
+        if(k2_2 > 0) {
+            k2_2 = parseFloat(k2_2);
+        } else {
+            k2_2 = 0;
+        }
     l_2 = document.getElementById('l_2').value; //длина шва
-    l_2 = parseInt(l_2);
-
+        if(l_2 > 0) {
+            l_2 = parseFloat(l_2);
+        } else {
+            l_2 = 0;
+        }
+    
     //расчёт массы наплавленного металла первого шва
     let s_1 = 0.5 * k1_1 * k2_1; //площадь прямоугольного треугольника
     let volume_1 = s_1 * l_1; //объём наплавленного металла    
@@ -70,7 +82,10 @@ function rTH(i_1 = 80, i_2 = 80) {
 }
 
 //Расчёт С
-function rC(i = 80) {    
+function rC() {    
+
+    let i = document.getElementById('i').value; //A, сила тока стыкового шва
+    i = parseInt(i);
 
     let s, b, e, q, l;
     //первый шов
