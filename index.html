@@ -44,14 +44,16 @@
                     <div class="S1"> <!-- Площадь зазора -->
                         <div id="div_s"><p>Толщина s: <input type="number" id="s"> см</p></div> <!-- толщина наименьшей детали -->
                         <div id="div_b"><p>Зазор b: <input type="number" id="b"> см</p></div> <!-- зазор между деталями -->
+                        <div id="div_l"><p>Длина: <input type="number" id="l"> см</p></div>
                     </div>
                     <div class="S2"> <!-- Площадь усиления -->                        
                         <div id="div_e"><p>Ширина e: <input type="number" id="e"> см</p></div> <!-- ширина усиления шва -->
                         <div id="div_q"><p>Высота q: <input type="number" id="q"> см</p></div> <!-- высота усиления шва -->
+                        <div id="div_i"><p>Сила тока: <input type="number" id="i" value="130"> А</p></div>
                     </div>
                 </div>
-                <div id="div_l"><p>Длина: <input type="number" id="l"> см</p></div>
-                <div id="div_i"><p>Сила тока: <input type="number" id="i" value="130"> А</p></div>
+             
+                
                 <div id="div_butC"><button onclick="rC()">Рассчитать</button></div> <!-- выполнение функции расчёта Стыковых швов -->
                 <div id="div_wWC"><p>Расход проволоки: <span id="weightWireC">0</span>, кг</p></div>
                 <div id="div_vGC"><p>Расход газа: <span id="volumeGasC">0</span>, м<sup>3</sup></p></div>
@@ -60,10 +62,10 @@
         </div>
 
         <!-- Расчёт точечнойсварки. Kt - точеная сварка -->
-        <div class="img_wrapperKt"> <img src="" alt="Сварочная точка" width="300px">
+        <div class="img_wrapperKt"> <img src="./point.jpg" alt="Сварочная точка" width="400px">
             <div class="wrapperKt">
                 <h2 id="headerKt">Расчёт Kt швов</h2>                
-                <div id="div_Np"><p>Количество точек: <input type="number" id="np"> шт</p></div>                
+                <div id="div_Np"><p>Количество точек: <input type="number" id="kt"> шт</p></div>                
                 <div id="div_butKt"><button onclick="rKt()">Рассчитать</button></div> <!-- выполнение функции расчёта Стыковых швов -->
                 <div id="div_wTKt"><p>Основное время: <span id="weldingTimeKt">0</span>, мин</p></div>                
             </div>

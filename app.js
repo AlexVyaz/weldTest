@@ -9,10 +9,6 @@ const p = 7.85; //плотность металла гр/см.куб
 const kPr = 1.2; //коэф. расхода проволоки
 const kN = 15; //г/А*ч, коэф. наплавки
 
-
-
-
-
 //Расчёт Т/Н/У
 function rTH() {
 
@@ -24,36 +20,29 @@ function rTH() {
 
     //переменные катетов и длины швов
     let = k1_1, k2_1, l_1, k1_2, k2_2, l_2;
-    
+      
     //первый шов
-    k1_1 = document.getElementById('k1_1').value; //первый катет
-    k1_1 = parseFloat(k1_1);
-
-    k2_1 = document.getElementById('k2_1').value; //второй катет
-    k2_1 = parseFloat(k2_1);
-
-    l_1 = document.getElementById('l_1').value; //длина шва
-    l_1 = parseInt(l_1);
+    k1_1 = parseFloat(document.getElementById('k1_1').value); //первый катет
     
+    k2_1 = parseFloat(document.getElementById('k2_1').value); //второй катет
+    
+    l_1 = parseInt(document.getElementById('l_1').value); //длина шва
+        
     //второй шов
-    k1_2 = document.getElementById('k1_2').value; //первый катет
-        if(k1_2 > 0) {
-            k1_2 = parseFloat(k1_2);
+    k1_2 = secondWire(document.getElementById('k1_2').value); //первый катет. проверка через функцию secondWire присваивает значение 0, если не происходит расчёт второго шва.. иначе ошибку выдатё!!!
+        
+    k2_2 = secondWire(document.getElementById('k2_2').value); //второй катет
+        
+    l_2 = secondWire(document.getElementById('l_2').value); //длина шва       
+    
+    function secondWire (kl) { //парсит переданное значение катета и длины или приисваивает 0, для работы расчёта.. иначе ошибка
+        if(kl > 0) {
+            kl = parseFloat(kl);
         } else {
-            k1_2 = 0;
+            kl = 0;
         }
-    k2_2 = document.getElementById('k2_2').value; //второй катет
-        if(k2_2 > 0) {
-            k2_2 = parseFloat(k2_2);
-        } else {
-            k2_2 = 0;
-        }
-    l_2 = document.getElementById('l_2').value; //длина шва
-        if(l_2 > 0) {
-            l_2 = parseFloat(l_2);
-        } else {
-            l_2 = 0;
-        }
+        return kl;
+    }
     
     //расчёт массы наплавленного металла первого шва
     let s_1 = 0.5 * k1_1 * k2_1; //площадь прямоугольного треугольника
@@ -124,4 +113,17 @@ function rC() {
     document.getElementById('weightWireC').innerHTML = weightWireC; //вывод расхода проволоки
     document.getElementById('volumeGasC').innerHTML = volumeGasC; //вывод расхода газа
     document.getElementById('weldingTimeC').innerHTML = weldingTimeC; //вывод основного времени сварки
+}
+
+//Расчёт Kt
+const kKt = 0.093; //переводной коэф точечной сварки
+function rKt() {    
+
+    let nKt = parseInt(document.getElementById('kt').value); //количество точек       
+    
+    let weldingTimeKt = nKt * kKt; //время сварки в мин
+
+    weldingTimeKt = weldingTimeKt.toFixed(2);        
+
+    document.getElementById('weldingTimeKt').innerHTML = weldingTimeKt; //вывод основного времени сварки
 }
