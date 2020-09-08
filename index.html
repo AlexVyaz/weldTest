@@ -11,7 +11,7 @@
     <h2 class="header">Упрощённый расчёт сварочных материалов и основного времени сварки (время горения дуги)</h2>
     
     <div class="wrapper" id="noKeyboard">
-        <!-- Расчёт угловых, тавровых и нахлёсточных соединений -->
+        <!-- Расчёт угловых, тавровых и нахлёсточных соединений. T - тавр, Н- нахлёст -->
         <div class="img_wrapperT_H"> <img src="./37699022.png" alt="Разделка" width="300px">
             <div class="wrapperT_H">
                 <h2 id="headerTH">Расчёт Т/Н/У швов</h2>                
@@ -56,6 +56,16 @@
                 <div id="div_wWC"><p>Расход проволоки: <span id="weightWireC">0</span>, кг</p></div>
                 <div id="div_vGC"><p>Расход газа: <span id="volumeGasC">0</span>, м<sup>3</sup></p></div>
                 <div id="div_wTC"><p>Основное время: <span id="weldingTimeC">0</span>, мин</p></div>                
+            </div>
+        </div>
+
+        <!-- Расчёт точечнойсварки. Kt - точеная сварка -->
+        <div class="img_wrapperKt"> <img src="" alt="Сварочная точка" width="300px">
+            <div class="wrapperKt">
+                <h2 id="headerKt">Расчёт Kt швов</h2>                
+                <div id="div_Np"><p>Количество точек: <input type="number" id="np"> шт</p></div>                
+                <div id="div_butKt"><button onclick="rKt()">Рассчитать</button></div> <!-- выполнение функции расчёта Стыковых швов -->
+                <div id="div_wTKt"><p>Основное время: <span id="weldingTimeKt">0</span>, мин</p></div>                
             </div>
         </div>
     </div>
