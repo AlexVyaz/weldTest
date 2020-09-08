@@ -15,21 +15,28 @@
         <div class="img_wrapperT_H"> <img src="./37699022.png" alt="Разделка" width="300px">
             <div class="wrapperT_H">
                 <h2 id="headerTH">Расчёт Т/Н/У швов</h2>                
-                <div class="razdelTH">
+                <div class="razdelTH"> <!-- div for раздельно №1 and №2 -->
                     <div class="firstSeam"> <!-- Первый шов -->
+                        <h4 id="headerTH">Шов №1</h4>
                         <div id="div_k1_1"><p>Катет 1: <input type="number" id="k1_1"> см</p></div>
                         <div id="div_k2_1"><p>Катет 2: <input type="number" id="k2_1"> см</p></div>
                         <div id="div_l_1"><p>Длина: <input type="number" id="l_1"> см</p></div>
                         <div id="div_i_1"><p>Сила тока: <input type="number" id="i_1" value="130"> А</p></div>
                     </div>
                     <div class="secondSeam"> <!-- Второй шов -->
+                        <h4 id="headerTH">Шов №2</h4>
                         <div id="div_k1_2"><p>Катет 1: <input type="number" id="k1_2"> см</p></div>
                         <div id="div_k2_2"><p>Катет 2: <input type="number" id="k2_2"> см</p></div>
                         <div id="div_l_2"><p>Длина: <input type="number" id="l_2"> см</p></div>
                         <div id="div_i_2"><p>Сила тока: <input type="number" id="i_2" value="130"> А</p></div>
                     </div>
                 </div>
-                <div id="div_but1"><button onclick="rTH()">Рассчитать</button></div> <!-- выполнение функции расчёта Тавровых и Нахлёсточных -->
+                <div class="div_butTHY"> <!-- div for кнопки в одной строке -->
+                    <div id="div_butRTH"><button onclick="rTH()">Рассчитать</button></div> <!-- выполнение функции расчёта Тавровых и Нахлёсточных -->
+                    <div id="div_butResTH1"><button onclick="resTH1()">Сброс №1</button></div> <!-- сброс значений №1 -->
+                    <div id="div_butResTH2"><button onclick="resTH2()">Сброс №2</button></div> <!-- сброс значений №2 -->
+                </div>
+
                 <div id="div_wW"><p>Расход проволоки: <span id="weightWire">0</span>, кг</p></div>
                 <div id="div_vG"><p>Расход газа: <span id="volumeGas">0</span>, м<sup>3</sup></p></div>
                 <div id="div_wT"><p>Основное время: <span id="weldingTime">0</span>, мин</p></div>                
@@ -40,21 +47,25 @@
         <div class="img_wrapperС"> <img src="./Стык.jpg" alt="Стык" width="300px">
             <div class="wrapperC">
                 <h2 id="headerC">Расчёт С швов</h2>
-                <div class="razdelC">
+                <div class="razdelC"> <!-- div for раздельно S1 and S2 -->
                     <div class="S1"> <!-- Площадь зазора -->
+                        <h3 id="headerC">S1</h3>
                         <div id="div_s"><p>Толщина s: <input type="number" id="s"> см</p></div> <!-- толщина наименьшей детали -->
                         <div id="div_b"><p>Зазор b: <input type="number" id="b"> см</p></div> <!-- зазор между деталями -->
                         <div id="div_l"><p>Длина: <input type="number" id="l"> см</p></div>
                     </div>
-                    <div class="S2"> <!-- Площадь усиления -->                        
+                    <div class="S2"> <!-- Площадь усиления -->   
+                        <h3 id="headerC">S2</h3>                     
                         <div id="div_e"><p>Ширина e: <input type="number" id="e"> см</p></div> <!-- ширина усиления шва -->
                         <div id="div_q"><p>Высота q: <input type="number" id="q"> см</p></div> <!-- высота усиления шва -->
                         <div id="div_i"><p>Сила тока: <input type="number" id="i" value="130"> А</p></div>
                     </div>
                 </div>
-             
-                
-                <div id="div_butC"><button onclick="rC()">Рассчитать</button></div> <!-- выполнение функции расчёта Стыковых швов -->
+                <div class="div_butC"> <!-- div for кнопки в одной строке -->
+                    <div id="div_butRC"><button onclick="rC()">Рассчитать</button></div> <!-- выполнение функции расчёта Стыковых швов -->
+                    <div id="div_butResCS1"><button onclick="resCS1()">Сброс S1</button></div> <!-- сброс значений S1 --> 
+                    <div id="div_butResCS2"><button onclick="resCS2()">Сброс S2</button></div> <!-- сброс значений S2 -->
+                </div>
                 <div id="div_wWC"><p>Расход проволоки: <span id="weightWireC">0</span>, кг</p></div>
                 <div id="div_vGC"><p>Расход газа: <span id="volumeGasC">0</span>, м<sup>3</sup></p></div>
                 <div id="div_wTC"><p>Основное время: <span id="weldingTimeC">0</span>, мин</p></div>                
@@ -65,8 +76,11 @@
         <div class="img_wrapperKt"> <img src="./point.jpg" alt="Сварочная точка" width="400px">
             <div class="wrapperKt">
                 <h2 id="headerKt">Расчёт Kt швов</h2>                
-                <div id="div_Np"><p>Количество точек: <input type="number" id="kt"> шт</p></div>                
-                <div id="div_butKt"><button onclick="rKt()">Рассчитать</button></div> <!-- выполнение функции расчёта Стыковых швов -->
+                <div id="div_Np"><p>Количество точек: <input type="number" id="kt"> шт</p></div>  
+                <div class="div_Kt">  <!-- div for кнопки в одной строке -->              
+                    <div id="div_butRKt"><button onclick="rKt()">Рассчитать</button></div> <!-- выполнение функции расчёта точечной сварки -->
+                    <div id="div_butResKt"><button onclick="resKt()">Сброс количества точек</button></div> <!-- сброс количества точек -->
+                </div>
                 <div id="div_wTKt"><p>Основное время: <span id="weldingTimeKt">0</span>, мин</p></div>                
             </div>
         </div>

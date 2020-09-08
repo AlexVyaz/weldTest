@@ -49,6 +49,8 @@ input[type=number]{
 
 #headerTH {
     text-align: center; 
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 .razdelTH {
@@ -64,9 +66,14 @@ input[type=number]{
     width: 30px;
 } 
 
-#div_but1 {
+.div_butTHY {
+    display: grid;
+    grid-template-columns: 90px 90px 90px;
+}
+
+#div_butRTH, #div_butResTH1, #div_butResTH2 {
     padding: 10px;
-    width: 10px;
+    width: 80px;
 }
 
 #div_wW, #div_vG, #div_wT {
@@ -99,6 +106,8 @@ input[type=number]{
 
 #headerC {
     text-align: center; 
+    padding-top: 3px;
+    padding-bottom: 5px;
 }
 
 .razdelC {
@@ -107,16 +116,21 @@ input[type=number]{
 }
 
 #div_s, #div_b, #div_e, #div_q, #div_l, #div_i {
-    padding: 10px;    
+    padding: 5px;    
 }
 
 #s, #b, #e, #q, #l, #i {
     width: 30px;
 } 
 
-#div_butC {
+.div_butC {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+}
+
+#div_butRC, #div_butResCS1, #div_butResCS2 {
     padding: 10px;
-    width: 10px;
+    width: 100px;
 }
 
 #div_wWC, #div_vGC, #div_wTC {
@@ -157,11 +171,16 @@ input[type=number]{
 
 #kt {
     width: 30px;
-} 
+}
 
-#div_butKt {
+.div_Kt {
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
+
+#div_butRKt, #div_butResKt {
     padding: 10px;
-    width: 10px;
+    width: 200px;
 }
 
 #div_wTKt {
