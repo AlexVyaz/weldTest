@@ -18,9 +18,9 @@ function rTH() {
     //переменные катетов и длины швов
     let = k1_1, k2_1, l_1, k1_2, k2_2, l_2;      
     //первый шов
-    k1_1 = parseFloat(document.getElementById('k1_1').value); //первый катет    
-    k2_1 = parseFloat(document.getElementById('k2_1').value); //второй катет    
-    l_1 = parseInt(document.getElementById('l_1').value); //длина шва        
+    k1_1 = secondWire(document.getElementById('k1_1').value); //первый катет    
+    k2_1 = secondWire(document.getElementById('k2_1').value); //второй катет    
+    l_1 = secondWire(document.getElementById('l_1').value); //длина шва        
     //второй шов
     k1_2 = secondWire(document.getElementById('k1_2').value); //первый катет. проверка через функцию secondWire присваивает значение 0, если не происходит расчёт второго шва.. иначе ошибку выдатё!!!    
     k2_2 = secondWire(document.getElementById('k2_2').value); //второй катет  
@@ -75,25 +75,19 @@ function resTH2(){
 //Расчёт С
 function rC() {    
 
-    let i = document.getElementById('i').value; //A, сила тока стыкового шва
-    i = parseInt(i);
-
+    let i = parseInt(document.getElementById('i').value); //A, сила тока стыкового шва
+    
     let s, b, e, q, l;
     //первый шов
-    s = document.getElementById('s').value; //толщина детали
-    s = parseFloat(s);
+    s = parseFloat(document.getElementById('s').value); //толщина детали
+    
+    b = parseFloat(document.getElementById('b').value); //ширина зазора между деталями
+    
+    e = parseFloat(document.getElementById('e').value); //ширина усиления шва
 
-    b = document.getElementById('b').value; //ширина зазора между деталями
-    b = parseFloat(b);
-
-    e = document.getElementById('e').value; //ширина усиления шва
-    e = parseFloat(e);
-
-    q = document.getElementById('q').value; //высота усиления шва
-    q = parseFloat(q);
-
-    l = document.getElementById('l').value; //длина шва
-    l = parseInt(l);    
+    q = parseFloat(document.getElementById('q').value); //высота усиления шва
+    
+    l = parseInt(document.getElementById('l').value); //длина шва
     
     // //расчёт массы наплавленного металла стыкового шва
     let s1 = s * b; //площадь зазора
@@ -116,15 +110,11 @@ function rC() {
     document.getElementById('volumeGasC').innerHTML = volumeGasC; //вывод расхода газа
     document.getElementById('weldingTimeC').innerHTML = weldingTimeC; //вывод основного времени сварки
 }
-//функция для ленивых, сбрасывает параметры прямоугольника S1 без обновления страницы
-function resCS1(){
-    document.getElementById('s').value = '';
-    document.getElementById('b').value = '';
-}
-//функция для ленивых, сбрасывает параметры прямоугольника S2 без обновления страницы
-function resCS2(){
-    document.getElementById('e').value = '';
-    document.getElementById('q').value = '';
+
+//функция для ленивых, сбрасывает параметры прямоугольника S1 и S2 без обновления страницы
+function resCS(znach1, znach2){
+    document.getElementById(znach1).value = '';
+    document.getElementById(znach2).value = '';
 }
 
 //Расчёт Kt

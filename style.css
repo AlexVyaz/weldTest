@@ -128,7 +128,7 @@ input[type=number]{
     grid-template-columns: 100px 100px 100px;
 }
 
-#div_butRC, #div_butResCS1, #div_butResCS2 {
+#div_butRC, #div_butResCS {
     padding: 10px;
     width: 100px;
 }
