@@ -25,7 +25,7 @@ function rTH() {
     k1_2 = secondWire(document.getElementById('k1_2').value); //первый катет. проверка через функцию secondWire присваивает значение 0, если не происходит расчёт второго шва.. иначе ошибку выдатё!!!    
     k2_2 = secondWire(document.getElementById('k2_2').value); //второй катет  
     l_2 = secondWire(document.getElementById('l_2').value); //длина шва
-    //функция парсит переданное значение катета и длины или приисваивает 0, для работы расчёта.. иначе ошибка
+    //функция парсит переданное значение катета и длины или присваивает 0, для работы расчёта.. иначе ошибка
     function secondWire (kl) { 
         if(kl > 0) {
             kl = parseFloat(kl);
@@ -34,14 +34,16 @@ function rTH() {
         }
         return kl;
     }
-    //расчёт массы наплавленного металла первого шва
-    let s_1 = 0.5 * k1_1 * k2_1; //площадь прямоугольного треугольника
-    let volume_1 = s_1 * l_1; //объём наплавленного металла    
-    let mNM_1 = volume_1 * p; //масса наплавленного металла
-    //расчёт массы наплавленного металла второго шва
-    let s_2 = 0.5 * k1_2 * k2_2; //площадь прямоугольного треугольника
-    let volume_2 = s_2 * l_2; //объём наплавленного металла    
-    let mNM_2 = volume_2 * p; //масса наплавленного металла
+    //функция расчёта массы наплавленного металла
+    function mNM(k1, k2, l){
+        let s = 0.5 * k1 * k2; //площадь прямоугольного треугольника
+        let volume = s * l; //объём наплавленного металла    
+        let mNM = volume * p; //масса наплавленного металла
+        return mNM;
+    }
+
+    let mNM_1 = mNM(k1_1, k2_1, l_1); //вызов функции расчёта массы наплавленного металла шва №1
+    let mNM_2 = mNM(k1_2, k2_2, l_2); //вызов функции расчёта массы наплавленного металла шва №2
 
     let cleanWeightWire1 = (mNM_1 * kPr) / 1000; //читсый вес проволоки для первого шва
     let cleanWeightWire2 = (mNM_2 * kPr) / 1000; //читсый вес проволоки для второго шва
@@ -59,17 +61,14 @@ function rTH() {
     document.getElementById('weldingTime').innerHTML = weldingTime; //вывод основного времени сварки
 }
 
-//функция для ленивых, сбрасывает параметры шва №1 без обновления страницы
-function resTH1(){
-    document.getElementById('k1_1').value = '';
-    document.getElementById('k2_1').value = '';
-    document.getElementById('l_1').value = '';
-}
-//функция для ленивых, сбрасывает параметры шва №2 без обновления страницы
-function resTH2(){
-    document.getElementById('k1_2').value = '';
-    document.getElementById('k2_2').value = '';
-    document.getElementById('l_2').value = '';
+//функция для ленивых, сбрасывает параметры шва №1 и №2 без обновления страницы
+function resTH(znach1, znach2, znach3){
+    document.getElementById(znach1).value = '';
+    document.getElementById(znach2).value = '';
+    document.getElementById(znach3).value = '';
+    document.getElementById('weightWire').innerHTML = 0; //сброс расхода проволоки
+    document.getElementById('volumeGas').innerHTML = 0; //сброс расхода газа
+    document.getElementById('weldingTime').innerHTML = 0; //сброс основного времени сварки
 }
 
 //Расчёт С
@@ -79,14 +78,10 @@ function rC() {
     
     let s, b, e, q, l;
     //первый шов
-    s = parseFloat(document.getElementById('s').value); //толщина детали
-    
-    b = parseFloat(document.getElementById('b').value); //ширина зазора между деталями
-    
+    s = parseFloat(document.getElementById('s').value); //толщина детали    
+    b = parseFloat(document.getElementById('b').value); //ширина зазора между деталями    
     e = parseFloat(document.getElementById('e').value); //ширина усиления шва
-
-    q = parseFloat(document.getElementById('q').value); //высота усиления шва
-    
+    q = parseFloat(document.getElementById('q').value); //высота усиления шва    
     l = parseInt(document.getElementById('l').value); //длина шва
     
     // //расчёт массы наплавленного металла стыкового шва
@@ -96,7 +91,7 @@ function rC() {
     let volume = sO * l; //объём наплавленного металла    
     let mNM = volume * p; //масса наплавленного металла    
 
-    let cleanWeightWire = (mNM * kPr) / 1000; //читсый вес проволоки для первого шва
+    let cleanWeightWire = (mNM * kPr) / 1000; //читсый вес проволоки шва
     
     let weightWireC = cleanWeightWire * 1.1; //масса сварочной проволоки с поправочный коэф.
     let volumeGasC = (cleanWeightWire * 1.2 * 0.24) * 1.1; //норма расхода газа
@@ -115,6 +110,9 @@ function rC() {
 function resCS(znach1, znach2){
     document.getElementById(znach1).value = '';
     document.getElementById(znach2).value = '';
+    document.getElementById('weightWireC').innerHTML = 0; //сброс расхода проволоки
+    document.getElementById('volumeGasC').innerHTML = 0; //сброс расхода газа
+    document.getElementById('weldingTimeC').innerHTML = 0; //сброс основного времени сварки
 }
 
 //Расчёт Kt
@@ -132,4 +130,5 @@ function rKt() {
 //функция для ленивых, сбрасывает количество точек без обновления страницы
 function resKt(){ 
     document.getElementById('kt').value = '';
+    document.getElementById('weldingTimeKt').innerHTML = 0; //сброс основного времени сварки
 }
